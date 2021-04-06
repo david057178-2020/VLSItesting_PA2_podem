@@ -42,10 +42,6 @@ void ATPG::test() {
         return;
     }// if fsim only
 
-
-
-
-
     /* test generation mode */
     /* Figure 5 in the PODEM paper */
     while (fault_under_test != nullptr) {

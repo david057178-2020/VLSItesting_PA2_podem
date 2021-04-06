@@ -1,0 +1,45 @@
+
+#Circuit Summary:
+#---------------
+#number of inputs = 60
+#number of outputs = 26
+#number of gates = 545
+#number of wires = 605
+#atpg: cputime for reading in circuit ../sample_circuits/c880.ckt: 0.0s 0.0s
+#atpg: cputime for levelling circuit ../sample_circuits/c880.ckt: 0.0s 0.0s
+#atpg: cputime for rearranging gate inputs ../sample_circuits/c880.ckt: 0.0s 0.0s
+#atpg: cputime for creating dummy nodes ../sample_circuits/c880.ckt: 0.0s 0.0s
+#number of equivalent faults = 1051
+#atpg: cputime for generating fault list ../sample_circuits/c880.ckt: 0.0s 0.0s
+T'110111111001101011000001011000111100011101011110100101010010'
+T'000111101101011101010100101000001101000010000110001110100010'
+T'011101110101111111111011010110010111000101010101111000101000'
+T'101100101011111001101101011111001101001110000000111001010101'
+T'111110011000100011100100110000101110010000010000010000011001'
+T'111011101001111011100100000000011010100011000101101111101101'
+T'101000110000101000000110100010000111001001110010010111101100'
+T'100000101000100010001011100010010001101111100100101100010001'
+T'000000111110010111011101011011011111001111001101000110010011'
+T'111011010110000100100000000001001010111100010001011011011000'
+T'000100011111101111011111010110100100111100111110011100001111'
+T'101111011100001110001100000100011100011110111000011101101110'
+T'101010001011001010110011101010001011111101100101100001111110'
+
+#number of aborted faults = 0
+
+#number of redundant faults = 599
+
+#number of calling podem1 = 612
+
+#total number of backtracks = 664
+
+#FAULT COVERAGE RESULTS :
+#number of test vectors = 13
+#total number of gate faults (uncollapsed) = 2104
+#total number of detected faults = 883
+#total gate fault coverage = 41.97%
+#number of equivalent gate faults (collapsed) = 1051
+#number of equivalent detected faults = 452
+#equivalent gate fault coverage = 43.01%
+
+#atpg: cputime for test pattern generation ../sample_circuits/c880.ckt: 0.1s 0.1s

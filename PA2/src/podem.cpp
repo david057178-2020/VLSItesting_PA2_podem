@@ -11,6 +11,10 @@
 
 /* generates a single pattern for a single fault */
 int ATPG::podem(const fptr fault, int &current_backtracks) {
+
+	//for debug
+	//fault->showInfo();
+
   int i, ncktwire, ncktin;
   wptr wpi; // points to the PI currently being assigned
   forward_list<wptr> decision_tree; // design_tree (a LIFO stack)
@@ -55,6 +59,9 @@ int ATPG::podem(const fptr fault, int &current_backtracks) {
 
     /* check if test possible.   Fig. 7.1 */
     if (wpi = test_possible(fault)) {
+	  //for debug
+      //cout << "input " << wpi->name  << " is assigned to " << wpi->value << endl;
+
       wpi->set_changed();
       /* insert a new PI into decision_tree */
       decision_tree.push_front(wpi);
@@ -348,8 +355,15 @@ ATPG::wptr ATPG::find_pi_assignment(const wptr object_wire, const int &object_le
   wptr new_object_wire;
   int new_object_level;
 
+  //for debug
+  //cout << "object wire = " << object_wire->name << endl;
+  //cout << "object level = " << object_level << endl;
+
   /* if PI, assign the same value as objective Fig 9.1, 9.2 */
   if (object_wire->is_input()) {
+	//for debug
+	//cout << "reach input " << object_wire->name << endl;
+
     object_wire->value = object_level;
     return (object_wire);
   }
@@ -363,41 +377,37 @@ ATPG::wptr ATPG::find_pi_assignment(const wptr object_wire, const int &object_le
         case(OR):
         ...     
       }
-    */  
+    */ 
+	  
 	switch(object_wire->inode.front()->type){
 		case(OR):
+			new_object_level = object_level;
+			new_object_wire = (object_level)? 
+							  find_easiest_control(object_wire->inode.front()):
+							  find_hardest_control(object_wire->inode.front());
+			break;
 		case(NAND):
-			//imply gate
-			if(object_level){
-				new_object_level = 0;
-				//choose hardest gate
-				new_object_wire = object_wire->inode.front()->iwire.back();
-			}
-			//decision gate
-			else{
-				new_object_level = 1;
-				//choose easiest gate
-				new_object_wire = objcet_wire->inode.front()->iwire.front();
-			}
+			new_object_level = !object_level;
+            new_object_wire = (object_level)?
+                              find_easiest_control(object_wire->inode.front()):
+                              find_hardest_control(object_wire->inode.front());
 			break;
 		case(AND):
+			new_object_level = object_level;
+            new_object_wire = (!object_level)?
+                              find_easiest_control(object_wire->inode.front()):
+                              find_hardest_control(object_wire->inode.front());
+			break;
 		case(NOR):
-			//imply gate
-			if(object_level){
-				new_object_level = 1;
-				//choose hardest gate
-				new_object_wire = object_wire->inode.front()->iwire.back();
-			}
-			//decision gate
-			else{
-				new_object_level = 0;
-				//choose easiest gate
-				new_object_wire = objcet_wire->inode.front()->iwire.front();
-			}
+			new_object_level = !object_level;
+            new_object_wire = (!object_level)?
+                              find_easiest_control(object_wire->inode.front()):
+                              find_hardest_control(object_wire->inode.front());
 			break;
 		default:
 			return (nullptr);
 	}
+	
     /* end TODO */
     if (new_object_wire) return (find_pi_assignment(new_object_wire, new_object_level));
     else return (nullptr);
@@ -449,8 +459,13 @@ ATPG::nptr ATPG::find_propagate_gate(const int &level) {
         w = sort_wlist[i]->inode.front()->iwire[j];
         /* if there is ont gate intput is D or D_bar */
         if ((w->value == D) || (w->value == D_bar)) {
-          if (trace_unknown_path(sort_wlist[i])) // check X path  Fig 8.6
+          if (trace_unknown_path(sort_wlist[i])){ // check X path  Fig 8.6
+			  //for debug	  
+			  //cout << "successfully find X path!" << endl;
+			  //cout << "return gate " << sort_wlist[i]->inode.front()->name << endl;
+			  //cout << endl;
             return (sort_wlist[i]->inode.front()); // succeed.  returns this gate
+		  }
           break;
         }
       }//end for loop
@@ -466,16 +481,38 @@ bool ATPG::trace_unknown_path(const wptr w) {
   int i, nout;
   /* TODO search X-path*/
   //HINT if w is PO, return TRUE;  if not, check all its fanout.
+
   if(w->is_output()){
-	return TRUE;
+	  //cout << "w is output, found X path" << endl;
+	  return TRUE;
   }
-  else{
+  else{	  
 	for(nptr node: w->onode){
-		if(trace_unknown_path(w->onode->owire.front())) return TRUE;
+		if(node->owire.front()->value == U){
+			if(trace_unknown_path(node->owire.front())){
+				return TRUE;
+			}
+		}
 	}
 	return FALSE;
   }
+/*
 
+	nout = w->onode.size();
+	for(i = 0; i < nout; ++i){
+		wptr fanout = w->onode[i]->owire.front();
+		//cout << "fanout = " << fanout->name << endl;
+		if(fanout->value == U){
+			if(trace_unknown_path(fanout)) {
+				//cout << "find X path" << endl;
+				return TRUE;
+			}
+		}
+	}
+	//cout << "do not find X path" << endl;
+	return FALSE;
+  }
+*/
   /* end TODO */
 }/* end of trace_unknown_path */
 
@@ -594,13 +631,22 @@ int ATPG::set_uniquely_implied_value(const fptr fault) {
       case FALSE:
   }
   */
-  switch(backward_imply(w, !fault->fault->type)){
+
+  //for debug
+  //cout << "backward imply: " << endl;
+  //cout << "wire name: " << w->name << endl;
+  //cout << "fault_type: " << fault->fault_type << endl;
+  //w->value = !fault->fault_type;
+  switch(backward_imply(w, !fault->fault_type)){
 	  case TRUE:
+		  //cout << "pi is reach" << endl;
 		  pi_is_reach = TRUE;
 		  break;
 	  case CONFLICT:
+		  //cout << "confilct" << endl;
 		return (CONFLICT);
 	  case FALSE:
+		//cout << "false" << endl;
 		break;
   }
 

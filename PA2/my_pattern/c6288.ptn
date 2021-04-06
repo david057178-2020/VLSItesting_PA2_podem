@@ -1,0 +1,35 @@
+
+#Circuit Summary:
+#---------------
+#number of inputs = 32
+#number of outputs = 32
+#number of gates = 4800
+#number of wires = 4832
+#atpg: cputime for reading in circuit ../sample_circuits/c6288.ckt: 0.0s 0.0s
+#atpg: cputime for levelling circuit ../sample_circuits/c6288.ckt: 0.2s 0.2s
+#atpg: cputime for rearranging gate inputs ../sample_circuits/c6288.ckt: 0.0s 0.2s
+#atpg: cputime for creating dummy nodes ../sample_circuits/c6288.ckt: 0.0s 0.2s
+#number of equivalent faults = 7808
+#atpg: cputime for generating fault list ../sample_circuits/c6288.ckt: 0.0s 0.2s
+T'11011110011010111000000000000000'
+T'00000010110001111000000000000000'
+T'11000111010111100100101010010001'
+
+#number of aborted faults = 0
+
+#number of redundant faults = 3762
+
+#number of calling podem1 = 3765
+
+#total number of backtracks = 720
+
+#FAULT COVERAGE RESULTS :
+#number of test vectors = 3
+#total number of gate faults (uncollapsed) = 17376
+#total number of detected faults = 9373
+#total gate fault coverage = 53.94%
+#number of equivalent gate faults (collapsed) = 7808
+#number of equivalent detected faults = 4046
+#equivalent gate fault coverage = 51.82%
+
+#atpg: cputime for test pattern generation ../sample_circuits/c6288.ckt: 1.6s 1.8s

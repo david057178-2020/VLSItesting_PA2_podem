@@ -330,5 +330,14 @@ class ATPG {
     int to_swlist;             /* index to the sort_wlist[] */
     int fault_no;              /* fault index */
     int detected_time{};         /* for N-detect */
+
+	//for debug
+	void showInfo(){
+		cout << "show fault info" << endl;
+		cout << "gate = " << node->name << endl;
+		cout << "io = " << ( (io)? "GO": "GI") << endl;
+		cout << "fault_type = " << ( (fault_type)? "SA1": "SA0") << endl;
+		cout << endl;
+	}
   }; // class FAULT
 };// class ATPG

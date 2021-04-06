@@ -174,6 +174,7 @@ set_scheduled	atpg.h	/^    void set_scheduled() { flag |= 1; }        \/\/ Set s
 set_tdfsim_only	main.cpp	/^void ATPG::set_tdfsim_only(const bool &b) {$/;"	f	class:ATPG
 set_total_attempt_num	main.cpp	/^void ATPG::set_total_attempt_num(const int &i) {$/;"	f	class:ATPG
 set_uniquely_implied_value	podem.cpp	/^int ATPG::set_uniquely_implied_value(const fptr fault) {$/;"	f	class:ATPG
+showInfo	atpg.h	/^	void showInfo(){$/;"	f	class:ATPG::FAULT
 sim	sim.cpp	/^void ATPG::sim() {$/;"	f	class:ATPG
 sort_wlist	atpg.h	/^  vector<wptr> sort_wlist;             \/* sorted wire list with regard to level *\/$/;"	m	class:ATPG
 targc	atpg.h	/^  int targc;                           \/* number of args on current command line *\/$/;"	m	class:ATPG

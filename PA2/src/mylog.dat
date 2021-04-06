@@ -1,0 +1,282 @@
+
+#Circuit Summary:
+#---------------
+#number of inputs = 5
+#number of outputs = 2
+#number of gates = 6
+#number of wires = 11
+#atpg: cputime for reading in circuit ../sample_circuits/c17.ckt: 0.0s 0.0s
+#atpg: cputime for levelling circuit ../sample_circuits/c17.ckt: 0.0s 0.0s
+#atpg: cputime for rearranging gate inputs ../sample_circuits/c17.ckt: 0.0s 0.0s
+#atpg: cputime for creating dummy nodes ../sample_circuits/c17.ckt: 0.0s 0.0s
+#number of equivalent faults = 22
+#atpg: cputime for generating fault list ../sample_circuits/c17.ckt: 0.0s 0.0s
+show fault info
+gate = dummy_gate1
+io = GO
+fault_type = SA1
+
+backward imply: 
+wire name: 1GAT(0)
+fault_type: 1
+pi is reach
+in trace_unknown_path
+fault wire name = 10GAT(6)
+fanout = 22GAT(10)
+in trace_unknown_path
+fault wire name = 22GAT(10)
+w is output, found X path
+find X path
+successfully find X path!
+return gate g2
+
+object wire = 10GAT(6)
+object level = 0
+new object wire = 3GAT(2)
+new_object level = 1
+object wire = 3GAT(2)
+object level = 1
+reach input 3GAT(2)
+input 3GAT(2) is assigned to 1
+in trace_unknown_path
+fault wire name = 22GAT(10)
+w is output, found X path
+successfully find X path!
+return gate g6
+
+object wire = 22GAT(10)
+object level = 0
+new object wire = 16GAT(8)
+new_object level = 1
+object wire = 16GAT(8)
+object level = 1
+new object wire = 11GAT(5)
+new_object level = 0
+object wire = 11GAT(5)
+object level = 0
+new object wire = 6GAT(3)
+new_object level = 1
+object wire = 6GAT(3)
+object level = 1
+reach input 6GAT(3)
+input 6GAT(3) is assigned to 1
+T'01110'
+show fault info
+gate = dummy_gate2
+io = GO
+fault_type = SA1
+
+backward imply: 
+wire name: 2GAT(1)
+fault_type: 1
+pi is reach
+in trace_unknown_path
+fault wire name = 16GAT(8)
+fanout = 23GAT(9)
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+find X path
+successfully find X path!
+return gate g4
+
+object wire = 16GAT(8)
+object level = 0
+new object wire = 11GAT(5)
+new_object level = 1
+object wire = 11GAT(5)
+object level = 1
+new object wire = 3GAT(2)
+new_object level = 0
+object wire = 3GAT(2)
+object level = 0
+reach input 3GAT(2)
+input 3GAT(2) is assigned to 0
+T'10011'
+show fault info
+gate = dummy_gate4
+io = GO
+fault_type = SA1
+
+backward imply: 
+wire name: 6GAT(3)
+fault_type: 1
+pi is reach
+in trace_unknown_path
+fault wire name = 11GAT(5)
+fanout = 19GAT(7)
+in trace_unknown_path
+fault wire name = 19GAT(7)
+fanout = 23GAT(9)
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+find X path
+find X path
+successfully find X path!
+return gate g1
+
+object wire = 11GAT(5)
+object level = 0
+new object wire = 3GAT(2)
+new_object level = 1
+object wire = 3GAT(2)
+object level = 1
+reach input 3GAT(2)
+input 3GAT(2) is assigned to 1
+in trace_unknown_path
+fault wire name = 16GAT(8)
+fanout = 23GAT(9)
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+find X path
+successfully find X path!
+return gate g4
+
+object wire = 16GAT(8)
+object level = 0
+new object wire = 2GAT(1)
+new_object level = 1
+object wire = 2GAT(1)
+object level = 1
+reach input 2GAT(1)
+input 2GAT(1) is assigned to 1
+in trace_unknown_path
+fault wire name = 22GAT(10)
+w is output, found X path
+successfully find X path!
+return gate g6
+
+object wire = 22GAT(10)
+object level = 0
+new object wire = 10GAT(6)
+new_object level = 1
+object wire = 10GAT(6)
+object level = 1
+new object wire = 1GAT(0)
+new_object level = 0
+object wire = 1GAT(0)
+object level = 0
+reach input 1GAT(0)
+input 1GAT(0) is assigned to 0
+T'01101'
+show fault info
+gate = dummy_gate5
+io = GO
+fault_type = SA1
+
+backward imply: 
+wire name: 7GAT(4)
+fault_type: 1
+pi is reach
+in trace_unknown_path
+fault wire name = 19GAT(7)
+fanout = 23GAT(9)
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+find X path
+successfully find X path!
+return gate g3
+
+object wire = 19GAT(7)
+object level = 0
+new object wire = 11GAT(5)
+new_object level = 1
+object wire = 11GAT(5)
+object level = 1
+new object wire = 3GAT(2)
+new_object level = 0
+object wire = 3GAT(2)
+object level = 0
+reach input 3GAT(2)
+input 3GAT(2) is assigned to 0
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+successfully find X path!
+return gate g5
+
+object wire = 23GAT(9)
+object level = 0
+new object wire = 16GAT(8)
+new_object level = 1
+object wire = 16GAT(8)
+object level = 1
+new object wire = 2GAT(1)
+new_object level = 0
+object wire = 2GAT(1)
+object level = 0
+reach input 2GAT(1)
+input 2GAT(1) is assigned to 0
+T'00000'
+show fault info
+gate = g3
+io = GI
+fault_type = SA1
+
+backward imply: 
+wire name: 11GAT(5)
+fault_type: 1
+pi is reach
+T'11111'
+show fault info
+gate = g5
+io = GI
+fault_type = SA1
+
+backward imply: 
+wire name: 16GAT(8)
+fault_type: 1
+pi is reach
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+object wire = 16GAT(8)
+object level = 0
+new object wire = 11GAT(5)
+new_object level = 1
+object wire = 11GAT(5)
+object level = 1
+new object wire = 3GAT(2)
+new_object level = 0
+object wire = 3GAT(2)
+object level = 0
+reach input 3GAT(2)
+input 3GAT(2) is assigned to 0
+in trace_unknown_path
+fault wire name = 23GAT(9)
+w is output, found X path
+object wire = 23GAT(9)
+object level = 0
+new object wire = 19GAT(7)
+new_object level = 1
+object wire = 19GAT(7)
+object level = 1
+new object wire = 7GAT(4)
+new_object level = 0
+object wire = 7GAT(4)
+object level = 0
+reach input 7GAT(4)
+input 7GAT(4) is assigned to 0
+T'01010'
+
+#number of aborted faults = 0
+
+#number of redundant faults = 0
+
+#number of calling podem1 = 6
+
+#total number of backtracks = 0
+
+#FAULT COVERAGE RESULTS :
+#number of test vectors = 6
+#total number of gate faults (uncollapsed) = 34
+#total number of detected faults = 34
+#total gate fault coverage = 100.00%
+#number of equivalent gate faults (collapsed) = 22
+#number of equivalent detected faults = 22
+#equivalent gate fault coverage = 100.00%
+
+#atpg: cputime for test pattern generation ../sample_circuits/c17.ckt: 0.0s 0.0s

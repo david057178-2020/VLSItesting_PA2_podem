@@ -1,0 +1,16 @@
+52c52
+< #number of aborted faults = 166
+---
+> #number of aborted faults = 0
+54c54
+< #number of redundant faults = 1389
+---
+> #number of redundant faults = 1555
+58c58
+< #total number of backtracks = 24726
+---
+> #total number of backtracks = 9507
+69c69
+< #atpg: cputime for test pattern generation ../sample_circuits/c1908.ckt: 2.9s 3.0s
+---
+> #atpg: cputime for test pattern generation ../sample_circuits/c1908.ckt: 2.1s 2.2s
